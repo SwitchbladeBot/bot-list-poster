@@ -2,17 +2,15 @@ const winston = require('winston')
 const express = require('express')
 const morgan = require("morgan")
 
-const PORT = process.env.PORT || 8081
+const PORT = process.env.PORT || 80
 
 module.exports = class BotListPoster {
   constructor () {
     this.initializeWinston()
     this.initializeExpress()
     this.loadBotLists()
-    this.maxShards = parseInt(process.env.MAX_SHARDS)
-    this.shards = [
-      {}
-    ]
+    this.maxShards = parseInt(process.env.SHARDS_PER_CLUSTER) * parseInt(process.env.MAX_CLUSTERS)
+    this.shards = []
   }
 
   initializeWinston() {
@@ -40,7 +38,7 @@ module.exports = class BotListPoster {
     // Send morgan logs to winston
     app.use(morgan("combined", { stream: { write: message => this.logger.info(message.trim(), { label: 'HTTP' })}}))
     app.use(express.json())
-    app.use(require('./routes/stats')())
+    app.use(require('./routes/shards')(this))
     
     app.listen(PORT, () => {
       this.logger.info(`Listening on port ${PORT}`, { label: 'HTTP' })
