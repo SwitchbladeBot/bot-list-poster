@@ -2,15 +2,20 @@ const winston = require('winston')
 const express = require('express')
 const morgan = require("morgan")
 
+const FileUtils = require('./utils/FileUtils.js')
+
 const PORT = process.env.PORT || 80
 
 module.exports = class BotListPoster {
   constructor () {
+    this.maxShards = parseInt(process.env.SHARDS_PER_CLUSTER) * parseInt(process.env.MAX_CLUSTERS)
+    this.shards = []
+    this.botLists = new Map()
+    this.tokens = require('../tokens.json')
     this.initializeWinston()
     this.initializeExpress()
     this.loadBotLists()
-    this.maxShards = parseInt(process.env.SHARDS_PER_CLUSTER) * parseInt(process.env.MAX_CLUSTERS)
-    this.shards = []
+    this.initializeScheduler()
   }
 
   initializeWinston() {
@@ -46,6 +51,20 @@ module.exports = class BotListPoster {
   }
 
   loadBotLists() {
+    FileUtils.requireDirectory('src/botlists', botList => {
+      const loadedList = new botList()
+      if (this.tokens[loadedList.name]) {
+        this.botLists.set(loadedList.name, loadedList)
+        this.logger.info(`Loaded ${loadedList.name} successfully, posting statistics every ${loadedList.interval} seconds.`, { label: 'Loader' })
+      } else {
+        this.logger.warn(`Did not load ${loadedList.name}, token not found. Check your tokens.json`, { label: 'Loader' })
+      }
+    }, error => {
+      this.logger.error(`An error ocurred while loading a bot list: ${error.stack}`, { label: 'Loader' })
+    }, false)
+  }
 
+  initializeScheduler() {
+    // TODO: Initialize the scheduler after loading lists
   }
 }
