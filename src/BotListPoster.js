@@ -40,6 +40,8 @@ module.exports = class BotListPoster {
   initializeExpress() {
     const app = express()
     
+    if (!process.env.SECRET) this.logger.warn('SECRET environment variable is not set', { label: 'HTTP' })
+
     // Send morgan logs to winston
     app.use(morgan("combined", { stream: { write: message => this.logger.info(message.trim(), { label: 'HTTP' })}}))
     app.use(express.json())

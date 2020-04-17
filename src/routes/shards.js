@@ -5,7 +5,7 @@ const Joi = require('@hapi/joi')
 
 module.exports = (poster) => {
   router.post('/shards', (req, res) => {
-    if (req.header('Authorization') !== `Bearer ${process.env.BOT_LIST_POSTER_SECRET}`) {
+    if (process.env.SECRET && req.header('Authorization') !== `Bearer ${process.env.SECRET}`) {
       res.status(401).json({ error: 'Missing secret' })
       return
     }
