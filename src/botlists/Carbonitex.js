@@ -6,7 +6,7 @@ module.exports = class Carbonitex extends BotList {
     super({
       name: 'carbonitex',
       url: 'https://www.carbonitex.net/discord/bots',
-      interval: 600
+      interval: 60
     })
   }
 

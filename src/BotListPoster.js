@@ -7,7 +7,8 @@ const FileUtils = require('./utils/FileUtils.js')
 const PORT = process.env.PORT || 80
 
 module.exports = class BotListPoster {
-  constructor () {
+  constructor (sentry) {
+    this.sentry = sentry
     this.maxShards = parseInt(process.env.SHARDS_PER_CLUSTER) * parseInt(process.env.MAX_CLUSTERS)
     this.shards = []
     this.botLists = new Map()
@@ -62,6 +63,7 @@ module.exports = class BotListPoster {
         this.logger.warn(`Did not load ${loadedList.name}, token not found. Check your tokens.json`, { label: 'Loader' })
       }
     }, error => {
+      this.sentry.captureException(error)
       this.logger.error(`An error ocurred while loading a bot list: ${error.stack}`, { label: 'Loader' })
     }, false)
   }
