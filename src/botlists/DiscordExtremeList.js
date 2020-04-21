@@ -15,7 +15,7 @@ module.exports = class DiscordExtremeList extends BotList {
       method: 'post',
       body: JSON.stringify({ guildCount }),
       headers: {
-        'authorization': token
+        authorization: token
       }
     })
     return true

@@ -15,7 +15,7 @@ module.exports = class DiscordBotsGG extends BotList {
       method: 'post',
       body: JSON.stringify({ guildCount, shardCount }),
       headers: {
-        'Authorization': token
+        Authorization: token
       }
     })
     return true

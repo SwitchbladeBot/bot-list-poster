@@ -1,6 +1,6 @@
 const winston = require('winston')
 const express = require('express')
-const morgan = require("morgan")
+const morgan = require('morgan')
 
 const FileUtils = require('./utils/FileUtils.js')
 
@@ -19,7 +19,7 @@ module.exports = class BotListPoster {
     this.initializeScheduler()
   }
 
-  initializeWinston() {
+  initializeWinston () {
     this.logger = winston.createLogger()
 
     if (process.env.NODE_ENV === 'production') {
@@ -38,22 +38,22 @@ module.exports = class BotListPoster {
     }
   }
 
-  initializeExpress() {
+  initializeExpress () {
     const app = express()
-    
+
     if (!process.env.SECRET) this.logger.warn('SECRET environment variable is not set', { label: 'HTTP' })
 
     // Send morgan logs to winston
-    app.use(morgan("combined", { stream: { write: message => this.logger.info(message.trim(), { label: 'HTTP' })}}))
+    app.use(morgan('combined', { stream: { write: message => this.logger.info(message.trim(), { label: 'HTTP' }) } }))
     app.use(express.json())
     app.use(require('./routes/shards')(this))
-    
+
     app.listen(PORT, () => {
       this.logger.info(`Listening on port ${PORT}`, { label: 'HTTP' })
     })
   }
 
-  loadBotLists() {
+  loadBotLists () {
     FileUtils.requireDirectory('src/botlists', botList => {
       const loadedList = new botList()
       if (this.tokens[loadedList.name]) {
@@ -68,7 +68,7 @@ module.exports = class BotListPoster {
     }, false)
   }
 
-  initializeScheduler() {
+  initializeScheduler () {
     // TODO: Initialize the scheduler after loading lists
   }
 }

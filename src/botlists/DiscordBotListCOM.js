@@ -14,12 +14,12 @@ module.exports = class DiscordBotListCOM extends BotList {
     fetch(`https://discordbotlist.com/api/bots/${botId}/stats`, {
       method: 'post',
       body: JSON.stringify({
-          guilds: guildCount,
-          users: userCount,
-          voice_connections: voiceConnectionCount
-        }),
+        guilds: guildCount,
+        users: userCount,
+        voice_connections: voiceConnectionCount
+      }),
       headers: {
-        'Authorization': `Bot ${token}`
+        Authorization: `Bot ${token}`
       }
     })
     return true
