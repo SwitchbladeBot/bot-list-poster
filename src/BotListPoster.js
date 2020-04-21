@@ -54,8 +54,8 @@ module.exports = class BotListPoster {
   }
 
   loadBotLists () {
-    FileUtils.requireDirectory('src/botlists', botList => {
-      const loadedList = new botList()
+    FileUtils.requireDirectory('src/botlists', NewBotList => {
+      const loadedList = new NewBotList()
       if (this.tokens[loadedList.name]) {
         this.botLists.set(loadedList.name, loadedList)
         this.logger.info(`Loaded ${loadedList.name} successfully, posting statistics every ${loadedList.interval} seconds.`, { label: 'Loader' })
