@@ -3,6 +3,10 @@ Centralized service to distribute your Discord bot's statistics to multiple bot 
 
 ## Supported Bot Lists
 - **[Carbonitex](https://www.carbonitex.net/discord/bots)** ([See file](src/botlists/Carbonitex.js))
+- **[discordbotlist.com](https://discordbotlist.com/)** ([See file](src/botlists/DiscordBotListCOM.js))
+- **[discord.bots.gg](https://discord.bots.gg/)** ([See file](src/botlists/DiscordBotsGG.js))
+- **[Discord Extreme List](https://discordextremelist.xyz/)** ([See file](src/botlists/DiscordExtremeList.js))
+- **[Statcord](https://statcord.com/)** ([See file](src/botlists/Statcord.js))
 
 ## Add a Bot List
 Bot list files reside in [src/botlists](src/botlists), and control how information is sent to each website. Below is a basic example of one os these files.
