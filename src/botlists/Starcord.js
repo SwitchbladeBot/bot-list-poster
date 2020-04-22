@@ -10,7 +10,7 @@ module.exports = class Statcord extends BotList {
     })
   }
 
-  postStatistics ({ guildCount, botId, token }) {
+  postStatistics ({ guildCount, userCount, botId, token }) {
     fetch('https://statcord.com/apollo/post/stats', {
       method: 'post',
       body: JSON.stringify([
