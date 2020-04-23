@@ -13,9 +13,11 @@ module.exports = class MythicalBots extends BotList {
   postStatistics ({ botId, guildCount, token }) {
     fetch(`https://mythicalbots.xyz/api/bot/${botId}`, {
       method: 'post',
-      body: JSON.stringify({
-        server_count: guildCount
-      }),
+      body: JSON.stringify([
+        {
+          server_count: guildCount
+        }
+      ]),
       headers: {
           authorization: token
       }
