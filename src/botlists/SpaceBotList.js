@@ -13,10 +13,12 @@ module.exports = class SpaceBotList extends BotList {
   postStatistics ({ botId, guildCount, userCount, token }) {
     fetch(`https://space-bot-list.org/api/bots/${botId}`, {
       method: 'post',
-      body: JSON.stringify([{
-        guilds: guildCount,
-        users: userCount
-      }]),
+      body: JSON.stringify([
+        {
+          guilds: guildCount,
+          users: userCount
+        }
+      ]),
       headers: {
         Authorization: token
       }
