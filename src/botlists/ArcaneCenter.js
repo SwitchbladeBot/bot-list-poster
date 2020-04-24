@@ -21,7 +21,7 @@ module.exports = class ArcaneCenter extends BotList {
         }
       ]),
       headers: {
-          Authorization: token
+        Authorization: token
       }
     })
     return true

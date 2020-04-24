@@ -19,7 +19,7 @@ module.exports = class DiscordList extends BotList {
         }
       ]),
       headers: {
-          Authorization: token
+        Authorization: token
       }
     })
     return true

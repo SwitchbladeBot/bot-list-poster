@@ -19,7 +19,7 @@ module.exports = class MythicalBots extends BotList {
         }
       ]),
       headers: {
-          authorization: token
+        authorization: token
       }
     })
     return true

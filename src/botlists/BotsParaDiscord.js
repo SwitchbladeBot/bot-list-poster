@@ -14,7 +14,7 @@ module.exports = class BotsParaDiscord extends BotList {
     fetch(`https://api.botsparadiscord.xyz/bots/${botId}/info?guilds=${guildCount}`, {
       method: 'post',
       headers: {
-          Authorization: token
+        Authorization: token
       }
     })
     return true
