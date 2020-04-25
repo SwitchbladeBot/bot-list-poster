@@ -7,6 +7,14 @@ Centralized service to distribute your Discord bot's statistics to multiple bot 
 - **[discord.bots.gg](https://discord.bots.gg/)** ([See file](src/botlists/DiscordBotsGG.js))
 - **[Discord Extreme List](https://discordextremelist.xyz/)** ([See file](src/botlists/DiscordExtremeList.js))
 - **[Statcord](https://statcord.com/)** ([See file](src/botlists/Statcord.js))
+- **[BotsParaDiscord](https://botsparadiscord.com/)** ([See file](src/botlists/BotsParaDiscord.js))
+- **[Discord Boats](https://discord.boats/)** ([See file](src/botlists/DiscordBoats.js))
+- **[Mythical Bots](https://mythicalbots.xyz/)** ([See file](src/botlists/MythicalBots.js))
+- **[Space BotList](https://space-bot-list.org/)** ([See file](src/botlists/SpaceBotList.js))
+- **[Bots On Discord](https://bots.ondiscord.xyz/)** ([See file](src/botlists/BotsOnDiscord.js))
+- **[Arcane Center](https://arcane-center.xyz/)** ([See file](src/botlists/ArcaneCenter.js))
+- **[Discord List](https://discordlist.co/)** ([See file](src/botlists/DiscordList.js))
+
 
 ## Add a Bot List
 Bot list files reside in [src/botlists](src/botlists), and control how information is sent to each website. Below is a basic example of one os these files.
