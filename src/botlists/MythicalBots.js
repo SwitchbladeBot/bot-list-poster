@@ -1,11 +1,14 @@
 const { BotList } = require('../structures')
 const fetch = require('node-fetch')
 
+/**
+ * @see https://docs.mythicalbots.xyz/
+ */
+
 module.exports = class MythicalBots extends BotList {
   constructor (name) {
     super({
       name: 'mythicalbots',
-      url: 'https://mythicalbots.xyz/',
       interval: 60
     })
   }
