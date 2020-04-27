@@ -2,9 +2,8 @@ const { BotList } = require('../structures')
 const fetch = require('node-fetch')
 
 /**
- * @see https://arcane-center.xyz/
+ * @see https://arcane-center.xyz/documentation
  */
-
 module.exports = class ArcaneCenter extends BotList {
   constructor (name) {
     super({

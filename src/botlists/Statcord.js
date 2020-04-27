@@ -4,7 +4,6 @@ const fetch = require('node-fetch')
 /**
  * @see https://docs.statcord.com/
  */
-
 module.exports = class Statcord extends BotList {
   constructor (name) {
     super({

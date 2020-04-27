@@ -4,7 +4,6 @@ const fetch = require('node-fetch')
 /**
  * @see https://docs.mythicalbots.xyz/
  */
-
 module.exports = class MythicalBots extends BotList {
   constructor (name) {
     super({

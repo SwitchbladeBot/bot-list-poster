@@ -4,7 +4,6 @@ const fetch = require('node-fetch')
 /**
  * @see https://discordlist.co/api/docs
  */
-
 module.exports = class DiscordList extends BotList {
   constructor (name) {
     super({

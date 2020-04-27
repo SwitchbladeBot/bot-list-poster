@@ -4,7 +4,6 @@ const fetch = require('node-fetch')
 /**
  * @see https://bots.ondiscord.xyz/info/api
  */
-
 module.exports = class BotsOnDiscord extends BotList {
   constructor (name) {
     super({
