@@ -23,11 +23,14 @@ Bot list files reside in [src/botlists](src/botlists), and control how informati
 const { BotList } = require('../structures')
 const fetch = require('node-fetch')
 
+/**
+ * @see https://www.carbonitex.net/discord/data/botdata.php
+ */
+
 module.exports = class Carbonitex extends BotList {
   constructor (name) {
     super({
       name: 'carbonitex',
-      url: 'https://www.carbonitex.net/discord/bots',
       interval: 60
     })
   }
