@@ -1,11 +1,13 @@
 const { BotList } = require('../structures')
 const fetch = require('node-fetch')
 
+/**
+ * @see https://discordbotlist.com/api-docs
+ */
 module.exports = class DiscordBotListCOM extends BotList {
   constructor (name) {
     super({
       name: 'discordbotlistcom',
-      url: 'https://discordbotlist.com/',
       interval: 60
     })
   }

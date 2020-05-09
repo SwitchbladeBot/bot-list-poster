@@ -1,11 +1,13 @@
 const { BotList } = require('../structures')
 const fetch = require('node-fetch')
 
+/**
+ * @see https://docs.statcord.com/
+ */
 module.exports = class Statcord extends BotList {
   constructor (name) {
     super({
       name: 'statcord',
-      url: 'https://statcord.com/',
       interval: 60
     })
   }
