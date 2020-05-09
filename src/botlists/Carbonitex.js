@@ -8,7 +8,8 @@ module.exports = class Carbonitex extends BotList {
   constructor (name) {
     super({
       name: 'carbonitex',
-      interval: 60
+      url: 'https://www.carbonitex.net/discord/bots',
+      instant: true
     })
   }
 

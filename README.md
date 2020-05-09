@@ -1,5 +1,5 @@
 # botlist-poster
-Centralized service to distribute your Discord bot's statistics to multiple bot lists. 
+Centralized service to distribute your Discord bot's statistics to multiple bot lists. We run this as service in a Kubernetes Cluster, but it might work with other orchestrators too.
 
 ## Supported Bot Lists
 - **[Carbonitex](https://www.carbonitex.net/discord/bots)** ([See file](src/botlists/Carbonitex.js))

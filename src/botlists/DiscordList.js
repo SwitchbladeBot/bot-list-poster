@@ -15,11 +15,9 @@ module.exports = class DiscordList extends BotList {
   postStatistics ({ botId, guildCount, token }) {
     fetch(`https://discordlist.co/api/bot/${botId}/stats`, {
       method: 'post',
-      body: JSON.stringify([
-        {
-          server_count: guildCount
-        }
-      ]),
+      body: JSON.stringify({
+        server_count: guildCount
+      }),
       headers: {
         Authorization: token
       }
